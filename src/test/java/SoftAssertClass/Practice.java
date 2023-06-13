@@ -1,0 +1,53 @@
+package SoftAssertClass;
+
+import Utils.BrowserUtils;
+import io.github.bonigarcia.wdm.WebDriverManager;
+import org.openqa.selenium.Alert;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
+import org.testng.annotations.Test;
+import org.testng.asserts.SoftAssert;
+
+import java.time.Duration;
+
+public class Practice {
+    @Test
+    public void practice1(){
+        WebDriverManager.chromedriver().setup();
+        ChromeOptions chromeOptions=new ChromeOptions();
+        chromeOptions.addArguments("--remote-allow-origins=*");
+        ChromeDriver driver=new ChromeDriver(chromeOptions);
+        driver.manage().window().maximize();
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+        driver.navigate().to("https://www.hyrtutorials.com/p/alertsdemo.html");
+
+        WebElement clickMe1 = driver.findElement(By.cssSelector("#alertBox"));
+        clickMe1.click();
+        Alert alert=driver.switchTo().alert();
+        SoftAssert softAssert=new SoftAssert();//changing hard assert to soft assert
+        softAssert.assertEquals(alert.getText().trim(),"I am an alert boxxxx!");//try to fail the test,but the rest still works
+        //Assert.assertEquals(alert.getText(),"I am an alert box!");
+
+        alert.accept();
+        WebElement message= driver.findElement(By.xpath("//div[@id='output']"));
+
+        softAssert.assertEquals(BrowserUtils.getText(message),"You selected alert popup");
+
+        WebElement clickMe2= driver.findElement(By.cssSelector("#confirmBox"));
+        clickMe2.click();
+        alert.dismiss();//no need to create another alert, can just use the same one multiple times
+        softAssert.assertEquals(BrowserUtils.getText(message),"You pressed Cancel in confirmation popupppppp");
+        //2nd failure
+
+        WebElement clickMe3= driver.findElement(By.cssSelector("#promptBox"));
+        clickMe3.click();
+        alert.sendKeys("Vivian Liu");
+        alert.accept();
+        softAssert.assertEquals(BrowserUtils.getText(message),"You entered text Vivian Liu in propmt popup");
+
+        softAssert.assertAll();//the system only shows this line for all mistakes included
+    }
+
+}
