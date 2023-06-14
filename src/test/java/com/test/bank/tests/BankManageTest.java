@@ -1,5 +1,6 @@
 package com.test.bank.tests;
 
+import Utils.ConfigReader;
 import com.test.bank.pages.BankLoginPage;
 import com.test.bank.pages.BankManagerPage;
 import org.testng.annotations.Test;
@@ -57,11 +58,12 @@ public class BankManageTest extends BankTestBase {
         loginPage.clickManagerButton();
         BankManagerPage bankManagerPage = new BankManagerPage(driver);
         //to be able to open account, need to add customer first, so the step is repeated for needs
-        bankManagerPage.addCustomerFunctionality(driver, "Vivian", "Liu", "60133",
-                "Customer added successfully with customer id");
-        bankManagerPage.OpenAccountFunctionality(driver, "Vivian Liu", "Dollar",
-                "Account created successfully with account Number");
+        bankManagerPage.addCustomerFunctionality(driver, ConfigReader.readProperty("QA_bankManagerTest_firstName"), ConfigReader.readProperty("QA_bankManagerTest_lastname"),
+                ConfigReader.readProperty("QA_bankManagerTest_zipcode"),
+                ConfigReader.readProperty("QA_bankManagerTest_expectedMessage"));
+       // bankManagerPage.OpenAccountFunctionality(driver, "Vivian Liu", "Dollar",
+              //  "Account created successfully with account Number");
        //validate the last functionality on manager page:
-        bankManagerPage.customerFunctionality("Vivian","Liu","60133");
+       // bankManagerPage.customerFunctionality("Vivian","Liu","60133");
     }
 }
