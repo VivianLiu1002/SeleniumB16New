@@ -26,6 +26,8 @@ Apple has introduced three new versions of its MacBook Pro line, including a 13-
 
     @FindBy (xpath = "//a[@id='itemc']")
     List<WebElement> categories;
+    @FindBy(xpath = "//a[.='Cart']")
+    WebElement cartButton;
     public void chooseCategory(String categoryName) {
         for (WebElement category : categories) {
             if (BrowserUtils.getText(category).equals(categoryName)) {
@@ -33,5 +35,8 @@ Apple has introduced three new versions of its MacBook Pro line, including a 13-
                 break;
             }
         }
+    }
+    public void clickCartButton(){
+        cartButton.click();
     }
 }
