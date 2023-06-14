@@ -3,14 +3,15 @@ package com.test.blaze.tests;
 import com.test.blaze.pages.BlazeMainPage;
 import com.test.blaze.pages.LaptopsPage;
 import com.test.blaze.pages.MacBookProPage;
+import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
 public class MacBookProTest extends BlazeTestBase {
-
+@Parameters({"category"})
 @Test
-    public void validateMacBookProInfo() throws InterruptedException {
+    public void validateMacBookProInfo(String category) throws InterruptedException {
         BlazeMainPage blazeMainPage=new BlazeMainPage(driver);
-        blazeMainPage.chooseCategory("Laptops");
+        blazeMainPage.chooseCategory(category);
         LaptopsPage laptopsPage=new LaptopsPage(driver);
         laptopsPage.chooseLaptopBrand(driver,"MacBook Pro");
         MacBookProPage macBookProPage=new MacBookProPage(driver);
