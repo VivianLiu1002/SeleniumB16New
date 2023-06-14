@@ -7,12 +7,16 @@
 
             <class name="com.test.bank.tests.BankLoginTest"></class>
             <class name="com.test.bank.tests.BankManageTest"></class>
+            <class name="com.test.bank.tests.CustomerLoginTest"></class>
+            
 
         </classes>
     </test>
     <test name="Blaze Test">
         <classes>
             <class name="com.test.blaze.tests.MacBookProTest"></class>
+            <class name="com.test.blaze.tests.BlazeCartTest"></class>
+            <class name="com.test.blaze.tests.BalzeOrdertest"></class>
         </classes>
     </test>
 

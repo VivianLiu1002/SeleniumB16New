@@ -28,6 +28,7 @@ public class MacBookProPage {
     }
 
     public void addToCartFunctionality(WebDriver driver, String expectedAlertMessage) throws InterruptedException {
+        BrowserUtils.scrollWithJS(driver,addToCartButton);
         addToCartButton.click();
         Thread.sleep(2000);
         Alert alert=driver.switchTo().alert();
