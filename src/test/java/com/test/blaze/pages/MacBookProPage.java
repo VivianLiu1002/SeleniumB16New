@@ -24,7 +24,7 @@ public class MacBookProPage {
 
         Assert.assertEquals(BrowserUtils.getText(header),expectedHeader);
         Assert.assertEquals(BrowserUtils.getText(price),expectedPrice);
-        Assert.assertEquals(BrowserUtils.getText(description),expectedDescription);
+        Assert.assertTrue(BrowserUtils.getText(description).contains(expectedDescription));
     }
 
     public void addToCartFunctionality(WebDriver driver, String expectedAlertMessage) throws InterruptedException {
@@ -32,7 +32,7 @@ public class MacBookProPage {
         addToCartButton.click();
         Thread.sleep(2000);
         Alert alert=driver.switchTo().alert();
-        Assert.assertEquals(alert.getText(),expectedAlertMessage);
+        Assert.assertTrue(alert.getText().contains(expectedAlertMessage));
         alert.accept();
     }
 

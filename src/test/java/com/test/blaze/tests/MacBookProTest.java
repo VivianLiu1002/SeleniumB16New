@@ -7,20 +7,17 @@ import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
 public class MacBookProTest extends BlazeTestBase {
-@Parameters({"category"})
+@Parameters({"category","laptopName","expectedHeader","expectedPrice","expectedDescription","expectedAlertMessage"})
 @Test
-    public void validateMacBookProInfo(String category) throws InterruptedException {
+    public void validateMacBookProInfo(String category,String laptopName,String expectedHeader,
+                                       String expectedPrice,String expectedDescription, String expectedAlertMessage) throws InterruptedException {
         BlazeMainPage blazeMainPage=new BlazeMainPage(driver);
         blazeMainPage.chooseCategory(category);
         LaptopsPage laptopsPage=new LaptopsPage(driver);
-        laptopsPage.chooseLaptopBrand(driver,"MacBook Pro");
+        laptopsPage.chooseLaptopBrand(driver,laptopName);
         MacBookProPage macBookProPage=new MacBookProPage(driver);
-        macBookProPage.macbookProInfo("MacBook Pro","$1100 *includes tax"
-        ,"Product description\n" +
-                        "Apple has introduced three new versions of its MacBook Pro line, " +
-                        "including a 13-inch and 15-inch model with the Touch Bar, a thin, " +
-                        "multi-touch strip display that sits above the MacBook Pro's keyboard.");
-        macBookProPage.addToCartFunctionality(driver,"Product added");
+        macBookProPage.macbookProInfo(expectedHeader,expectedPrice,expectedDescription);
+        macBookProPage.addToCartFunctionality(driver,expectedAlertMessage);
     }
 
 }

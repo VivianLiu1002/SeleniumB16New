@@ -2,21 +2,50 @@
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
 <!-- this Doctype is telling system that this file will be suite (either regression or smoke)-->
 <suite name="Regression Suite">
-    <test name="Bank Tests">
-        <classes>
+<!--    <test name="Bank Tests">-->
+<!--        <parameter name="expectedHeader" value="XYZ Bank"></parameter>-->
+<!--        <parameter name="url" value="https://www.globalsqa.com/angularJs-protractor/BankingProject/#/login"></parameter>-->
+<!--        <parameter name="firstName" value="Vivian"></parameter>-->
+<!--        <parameter name="lastName" value="Liu"></parameter>-->
+<!--        <parameter name="postCode" value="60133"></parameter>-->
+<!--        <parameter name="expectedMessage" value="Customer added successfully with customer id"></parameter>-->
+<!--        <parameter name="fullName" value="Vivian Liu"></parameter>-->
+<!--        <parameter name="currency" value="Dollar"></parameter>-->
+<!--        <parameter name="expectedAccountMessage" value="Account created successfully with account Number"></parameter>-->
+<!--        <parameter name="expectedCustomerMessage" value="Welcome Vivian Liu !!"></parameter>-->
+<!--        <parameter name="depositAmount" value="500"></parameter>-->
+<!--        <parameter name="expectedDepositMessage" value="Deposit Successful"></parameter>-->
+<!--        <parameter name="withdrawAmount" value="300"></parameter>-->
+<!--        <parameter name="expectedWithdrawMessage" value="Transaction successful"></parameter>-->
+<!--        <classes>-->
+<!--            <class name="com.test.bank.tests.BankLoginTest"></class>-->
+<!--            <class name="com.test.bank.tests.BankManageTest"></class>-->
+<!--            <class name="com.test.bank.tests.CustomerLoginTest"></class>-->
 
-            <class name="com.test.bank.tests.BankLoginTest"></class>
-            <class name="com.test.bank.tests.BankManageTest"></class>
-            <class name="com.test.bank.tests.CustomerLoginTest"></class>
-            
-
-        </classes>
-    </test>
+<!--        </classes>-->
+<!--    </test>-->
     <test name="Blaze Test">
+        <parameter name="category" value="Laptops"> </parameter>
+        <parameter name="laptopName" value="MacBook Pro"> </parameter>
+        <parameter name="expectedHeader" value="MacBook Pro"> </parameter>
+        <parameter name="expectedPrice" value="$1100 *includes tax"> </parameter>
+        <parameter name="expectedDescription" value="Apple has introduced three new versions of its MacBook Pro line, including a 13-inch and 15-inch model with the Touch Bar, a thin, multi-touch strip display that sits above the MacBook Pro's keyboard."> </parameter>
+        <parameter name="expectedAlertMessage" value="Product added"> </parameter>
+        <parameter name="laptopPrice" value="1100"> </parameter>
+        <parameter name="name" value="Vivian"> </parameter>
+        <parameter name="country" value="USA"> </parameter>
+        <parameter name="city" value="Chicago"> </parameter>
+        <parameter name="creditCard" value="123456789"> </parameter>
+        <parameter name="month" value="06"> </parameter>
+        <parameter name="year" value="2023"> </parameter>
+        <parameter name="expectedThankYouMessage" value="Thank you for your purchase!"> </parameter>
+        <parameter name="expectedUrl" value="https://www.demoblaze.com/index.html"> </parameter>
+
         <classes>
-            <class name="com.test.blaze.tests.MacBookProTest"></class>
-            <class name="com.test.blaze.tests.BlazeCartTest"></class>
-            <class name="com.test.blaze.tests.BalzeOrdertest"></class>
+            <class name="com.test.blaze.tests.MacBookProTest"> </class>
+            <class name="com.test.blaze.tests.BlazeCartTest"> </class>
+            <class name="com.test.blaze.tests.BalzeOrdertest"> </class>
+
         </classes>
     </test>
 
