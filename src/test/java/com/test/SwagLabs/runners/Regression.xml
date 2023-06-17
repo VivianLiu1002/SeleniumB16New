@@ -3,7 +3,7 @@
     <test name="Regression Test">
         <classes>
             <class name="com.test.SwagLabs.tests.SwagLabs_LoginTest"> </class>
-
+            <class name="com.test.SwagLabs.tests.SwagLabs_MainTest"> </class>
         </classes>
     </test>
 

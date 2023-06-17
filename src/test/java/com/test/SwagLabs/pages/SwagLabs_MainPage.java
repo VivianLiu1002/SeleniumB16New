@@ -14,23 +14,27 @@ public class SwagLabs_MainPage {
         PageFactory.initElements(driver, this);
     }
 
-    @FindBy(css = ".inventory_item_name")
+    @FindBy(xpath = "//a[contains(@id,'title_link')]")
     List<WebElement> itemNames;
     @FindBy(xpath = "//div[contains(@class,'inventory_details_name')]")
     WebElement header;
-    @FindBy()
+    @FindBy(xpath = "//div[contains(@class,'inventory_details_desc large_size')]")
     WebElement description;
-    @FindBy()
-    WebElement price
+    @FindBy(css = ".inventory_details_price")
+    WebElement price;
 
-    public void productSearch(String ItemName) throws InterruptedException {
+    public void productSearch(String ItemName,String header,String description,String price) throws InterruptedException {
         for (WebElement name : itemNames) {
             if (BrowserUtils.getText(name).equals(ItemName)){
-                Thread.sleep(2000);
                 name.click();
+                Thread.sleep(1000);
+                Assert.assertEquals(BrowserUtils.getText(this.header),header);
+                Assert.assertTrue(BrowserUtils.getText(this.description).contains(description));
+                Assert.assertEquals(BrowserUtils.getText(this.price),price);
                 break;
             }
-            Assert.assertEquals(BrowserUtils.getText(),"Sauce Labs Backpack");
+
+
         }
     }
 

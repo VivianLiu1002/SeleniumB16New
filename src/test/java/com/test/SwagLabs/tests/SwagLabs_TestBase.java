@@ -52,6 +52,6 @@ public class SwagLabs_TestBase {
         if (!iTestResult.isSuccess()){
             BrowserUtils.getScreenShot(driver,"SwagLabs");
         }
-     //  driver.quit();
+       driver.quit();
     }
 }
